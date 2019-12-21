@@ -18,7 +18,7 @@ void intercala(int a[], int n, int *contador_de_modificacoes, int *contador_de_c
 void quicksort(int e, int d, int a[],int *contador_de_modificacoes, int *contador_de_chaves);
 void partilhar(int e, int d, int *i, int *j, int a[],int *contador_de_modificacoes, int *contador_de_chaves);
 
-//Inicio das funcoes de ordenaÁao
+//Inicio das funcoes de ordena√ßao
 
 int main(){
 	setlocale(LC_ALL,"Portuguese");
@@ -27,21 +27,21 @@ int main(){
     double tempo; //variavel que armazenara a diferenca entre o tempo final e o tempo inicial gasto na ordenacao
     srand(time(NULL)); // inicializa um gerador de numeros aleatorios que sera usado na funcao de embaralhar o arranjo
     int *v;  // ponteiro para o arranjo na memoria que sera alocado com tamanho n
-	int q; // Usado para testar todas as possibilidades dos algorÌtmos
-    int n; // variavel que conter· o tamanho do arranjo
-    int t; // variavel que conter· o tipo de ordenaÁ„o do arranjo
+	int q; // Usado para testar todas as possibilidades dos algor√≠tmos
+    int n; // variavel que conter√° o tamanho do arranjo
+    int t; // variavel que conter√° o tipo de ordena√ß√£o do arranjo
 	
     printf(" \n Digite o tamanho do arranjo: ");
     scanf("%d", &n);
     v = (int *) malloc(n*sizeof(int)); //alocacao de memoria para o vetor
 
-    int n_funcao; // Variavel para controlar qual funcao de ordenaÁao ser· utilizada				 
-    printf("\n Digite qual funcao de ordenaÁ„o ser· utilizada(0-seleÁ„o, 1-inserÁ„o, 2- bubblesort, 3-mergesort, 4-quicksort): ");
+    int n_funcao; // Variavel para controlar qual funcao de ordena√ßao ser√° utilizada				 
+    printf("\n Digite qual funcao de ordena√ß√£o ser√° utilizada(0-sele√ß√£o, 1-inser√ß√£o, 2- bubblesort, 3-mergesort, 4-quicksort): ");
 	scanf("%d", &n_funcao);
 	
-	int exibir; //Variavel para controlar a exibiÁ„o ou n„o do vetor antes e depois da ordenaÁ„o.
+	int exibir; //Variavel para controlar a exibi√ß√£o ou n√£o do vetor antes e depois da ordena√ß√£o.
 	int n_exi;
-	printf("\n Digite 1 para exibir o vetor antes e depois da ordenaÁ„o, digite 0 para n„o exibir: ");
+	printf("\n Digite 1 para exibir o vetor antes e depois da ordena√ß√£o, digite 0 para n√£o exibir: ");
 	scanf("%d", &exibir);
 	
     for(t=1;t<5;t++){
@@ -74,15 +74,15 @@ int main(){
 			}
 		}
 		if(exibir==1){
-			printf("\n Vetor antes da ordenaÁ„o: ");
+			printf("\n Vetor antes da ordena√ß√£o: ");
 			for(n_exi = 0;n_exi<n;n_exi++){
 				printf(" %d,",v[n_exi]);
 			}
 		}
         ti = clock();
-        // Chamada da funÁ„o de ordenaÁ„o selecionada anteriormente;
-		// Em cada funÁ„o È passado dois valores por referencia, contador_de_movimentacoes e contador_de_chaves
-		// Cada um deles È modificado diferentemente dependendo da funÁ„o de ordenaÁ„o implementada						 
+        // Chamada da fun√ß√£o de ordena√ß√£o selecionada anteriormente;
+		// Em cada fun√ß√£o √© passado dois valores por referencia, contador_de_movimentacoes e contador_de_chaves
+		// Cada um deles √© modificado diferentemente dependendo da fun√ß√£o de ordena√ß√£o implementada						 
         	if(n_funcao == 0){	
         		selecao(v,n,&contador_de_movimentacoes,&contador_de_chaves);
 			}
@@ -106,13 +106,13 @@ int main(){
 		tf = clock();// Termina de medir tempo
 		tempo = ( (double) (tf - ti) ) / CLOCKS_PER_SEC;
 		if(exibir==1){
-			printf("\n Vetor depois da ordenaÁ„o: ");
+			printf("\n Vetor depois da ordena√ß√£o: ");
 			for(n_exi = 0;n_exi<n;n_exi++){
 				printf(" %d,",v[n_exi]);
 			}
 		}
 		printf("\n Tempo para ordenar %d elementos pelo metodo (%d): %f. \n", n, n_funcao, tempo);
-        printf("\n Numero de modificaÁıes: %d \n Numero de chaves: %d. \n", contador_de_movimentacoes, contador_de_chaves);
+        printf("\n Numero de modifica√ß√µes: %d \n Numero de chaves: %d. \n", contador_de_movimentacoes, contador_de_chaves);
 	}
 
         //libera a memoria gasta
@@ -121,7 +121,7 @@ int main(){
 }
 
 
-void troca(int *a, int *b){ // FunÁ„o para trocar o valor de dois numeros entre suas variaveis.
+void troca(int *a, int *b){ // Fun√ß√£o para trocar o valor de dois numeros entre suas variaveis.
     int aux;
     aux = *a;
     *a = *b;
@@ -132,23 +132,23 @@ void troca(int *a, int *b){ // FunÁ„o para trocar o valor de dois numeros entre 
 void bubblesort(int a[], int n,int *contador_de_chaves,int *contador_de_movimentacoes){
 
 	int i,j; // Variaveis de indice
-	*contador_de_movimentacoes = 0; // Inicio dos valores de variaveis contadoras como 0 para comeÁar a contagem
+	*contador_de_movimentacoes = 0; // Inicio dos valores de variaveis contadoras como 0 para come√ßar a contagem
 	*contador_de_chaves = 0;
 	for(i=0;i<n-1;i++){
 		
 		for(j=i+1;j<n;j++){
 
-			if(a[i]>a[j] && i!=j){ 	// ComparaÁ„o entre dois valores sendo que o a[i] È fixo no comando de repetiÁ„o j
-									// assim a[j] È percorrido e comparado com o a[i] atÈ que o if seja verdadeiro ou o j seja equivalente ao n
+			if(a[i]>a[j] && i!=j){ 	// Compara√ß√£o entre dois valores sendo que o a[i] √© fixo no comando de repeti√ß√£o j
+									// assim a[j] √© percorrido e comparado com o a[i] at√© que o if seja verdadeiro ou o j seja equivalente ao n
 				troca(&a[i],&a[j]); // Troca das variaveis a[i] e a[j] ordenando-as
 				i--;				// Decremento de i para ocorrer um novo teste com o numero ordenado anteriormente 
-				*contador_de_chaves+=1; //soma das variaveis contadoras para qualificaÁ„o do codigo
+				*contador_de_chaves+=1; //soma das variaveis contadoras para qualifica√ß√£o do codigo
 				*contador_de_movimentacoes+=4;
-				break;           // Break para terminar o comando de repetiÁ„o for de j e voltar no comando for de i
+				break;           // Break para terminar o comando de repeti√ß√£o for de j e voltar no comando for de i
 			}
-			*contador_de_chaves+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+			*contador_de_chaves+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 		}
-		*contador_de_chaves+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+		*contador_de_chaves+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 	}
 
 }
@@ -161,30 +161,30 @@ void intercala(int a[], int n, int *contador_de_modificacoes, int *contador_de_c
 	j=meio;
 	k=0;
 	while(j<n && i<meio){
-		if(a[i]<a[j]){       // Testa se o numero intermedi·rio com o numero a[i]
+		if(a[i]<a[j]){       // Testa se o numero intermedi√°rio com o numero a[i]
 			aux[k]=a[i];
 			i++;	
 			*contador_de_modificacoes+=2;
-			*contador_de_chaves+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+			*contador_de_chaves+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 		}
 		else{
 			
 			aux[k]=a[j]; 
 			j++;
 			*contador_de_modificacoes+=2;
-			*contador_de_chaves+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+			*contador_de_chaves+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 		}
 		k++;
-		*contador_de_modificacoes+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+		*contador_de_modificacoes+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 	}
 		if(i==meio){
-			*contador_de_chaves+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+			*contador_de_chaves+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 			while(j<n){
 				aux[k]=a[j];
 				k++;
 				j++;
 				*contador_de_chaves+=1;
-				*contador_de_modificacoes+=3;//soma das variaveis contadoras para qualificaÁ„o do codigo
+				*contador_de_modificacoes+=3;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 			}
 		}
 		else{
@@ -194,7 +194,7 @@ void intercala(int a[], int n, int *contador_de_modificacoes, int *contador_de_c
 				i++;
 				k++;
 				*contador_de_chaves+=1;
-				*contador_de_modificacoes+=3;//soma das variaveis contadoras para qualificaÁ„o do codigo
+				*contador_de_modificacoes+=3;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 			}
 			
 		}
@@ -279,16 +279,16 @@ void insercao(int a[], int n,int *contador_de_modificacoes,int *contador_de_chav
 	int i, j; // indices
 	int x; // elemento
 
-	*contador_de_modificacoes = 0;//inicio das variaveis contadoras para qualificaÁ„o do codigo
+	*contador_de_modificacoes = 0;//inicio das variaveis contadoras para qualifica√ß√£o do codigo
 	*contador_de_chaves = 0;
 	
-	for(i=1;i<n;i++){//para cada posiÁ„o a partir de i=1
+	for(i=1;i<n;i++){//para cada posi√ß√£o a partir de i=1
 	
 		x = a[i];
 		j = i-1;
 	    
 	    
-		while(x<a[j] && j>=0){//organiza o elemento na posiÁ„o ordenada
+		while(x<a[j] && j>=0){//organiza o elemento na posi√ß√£o ordenada
 
 			a[j+1]=a[j]; //Troca o elemento 1
 			j--;
@@ -310,27 +310,27 @@ void selecao(int a[], int n, int *contador_de_modificacoes, int *contador_de_cha
 	int i, j, min; // indices
 	int x; // elemento 
 	
-	*contador_de_chaves = 0;//inicio das variaveis contadoras para qualificaÁ„o do codigo
+	*contador_de_chaves = 0;//inicio das variaveis contadoras para qualifica√ß√£o do codigo
 	*contador_de_modificacoes = 0;
 	for(i=0;i<n-1;i++){
-		// Procura o menor elemento entre i+1 e n e ele È armazenado em i
+		// Procura o menor elemento entre i+1 e n e ele √© armazenado em i
 		min = i;
-		*contador_de_modificacoes+=1;				//soma das variaveis contadoras para qualificaÁ„o do codigo
+		*contador_de_modificacoes+=1;				//soma das variaveis contadoras para qualifica√ß√£o do codigo
 		*contador_de_chaves+=1;						
 		for(j=i+1;j<n;j++){
 			
 			if(a[j]< a[min]){
-				min = j; // mÌnimo È o j
-				*contador_de_modificacoes+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+				min = j; // m√≠nimo √© o j
+				*contador_de_modificacoes+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 				*contador_de_chaves+=1;
 			}
-			*contador_de_chaves+=1;//soma das variaveis contadoras para qualificaÁ„o do codigo
+			*contador_de_chaves+=1;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 		}
 		//troca a[i] com a[min]
 		x= a[min];
 		a[min] = a[i];
 		a[i] = x;
-		*contador_de_modificacoes += 3;//soma das variaveis contadoras para qualificaÁ„o do codigo
+		*contador_de_modificacoes += 3;//soma das variaveis contadoras para qualifica√ß√£o do codigo
 			*contador_de_chaves+=1;
 	}
 }
