@@ -11,7 +11,7 @@
 typedef struct carta{
 	int nipe; 									// Paus 4, Copas 3, Espadas 2, Ouro 1;
 	int numero; 								//4, 5, 6, 7, Q, J, K, A, 2, 3 -> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
-	int zap; 									// Ordenado em sequencia crescente de forÁa.
+	int zap; 									// Ordenado em sequencia crescente de for√ßa.
 }carta;
 
 
@@ -42,7 +42,7 @@ typedef struct jogador{ 						// Struct para os jogadores.
 	
 }jogador;
 
-jogador* ini_j(){ 								// FunÁ„o para iniciar a struct jogadores.
+jogador* ini_j(){ 								// Fun√ß√£o para iniciar a struct jogadores.
 	
 	jogador* p = (jogador*)malloc(sizeof(jogador));
 	return p;
@@ -51,27 +51,27 @@ jogador* ini_j(){ 								// FunÁ„o para iniciar a struct jogadores.
 
 
 void shuffle(baralho *p) {
-												// funÁ„o para embaralhar o baralho. 
+												// fun√ß√£o para embaralhar o baralho. 
 	srand(time(NULL)); 
 	int i,j,tmp,n,tmp2;							// Inicio das variaveis
 	n=0;
 	j=0;
-												// AtribuiÁ„o das cartas em sequencia numerica
+												// Atribui√ß√£o das cartas em sequencia numerica
 	for(i=1;i<41;i++){
-												//repetiÁ„o dos numeros na atribuiÁ„o.
+												//repeti√ß√£o dos numeros na atribui√ß√£o.
 	p->cartao[i-1].numero=n;
 	p->cartao[i-1].nipe=j+1;
 	j++;
-												//limitaÁ„o de 4 numeros repetidos pela atribuiÁ„o para mudar de numero.
+												//limita√ß√£o de 4 numeros repetidos pela atribui√ß√£o para mudar de numero.
 	if(i%4==0){
 		n++;
 		j=0;
 	}
 }
-												// ComeÁo do embaralhar das cartas.
+												// Come√ßo do embaralhar das cartas.
     for (i = 39; i > 0; i--) {
-    											// Um laÁo de repetiÁ„o.
-        j = rand()%i; 							// AleatorizaÁ„o de j para fazer a troca dos numeros pelo indice aleatÛrio.
+    											// Um la√ßo de repeti√ß√£o.
+        j = rand()%i; 							// Aleatoriza√ß√£o de j para fazer a troca dos numeros pelo indice aleat√≥rio.
         tmp = p->cartao[j].numero;
         tmp2 = p->cartao[j].nipe;
         										//Variaveis auxiliares para conter os valores.
@@ -82,9 +82,9 @@ void shuffle(baralho *p) {
         p->cartao[i].numero = tmp;
 		p->cartao[i].nipe = tmp2;
 		p->cartao[i].zap = 0;
-												// alteraÁ„o dos dois valores pelos seus indices.
+												// altera√ß√£o dos dois valores pelos seus indices.
 		
-												// ComeÁo da atribuiÁ„o das cartas zap pelo seu numero e nipe com um if para comparaÁ„o.
+												// Come√ßo da atribui√ß√£o das cartas zap pelo seu numero e nipe com um if para compara√ß√£o.
 		if(p->cartao[i].numero==3 && p->cartao[i].nipe==4){ 
 			p->cartao[i].zap=4;
 		}
@@ -102,7 +102,7 @@ void shuffle(baralho *p) {
 }
 
 int maior(carta p, carta n){
-												//FunÁ„o para testar a carta com o maior valor.
+												//Fun√ß√£o para testar a carta com o maior valor.
 	if(p.numero == n.numero){
 		if(p.zap>n.zap){
 			return 1;
@@ -129,42 +129,42 @@ int maior(carta p, carta n){
 int main(){
 	
 		FILE *r;
-												// Abertura do arquivo para o registro do jogo com a funÁ„o somente de escrita.
+												// Abertura do arquivo para o registro do jogo com a fun√ß√£o somente de escrita.
 	r = fopen("Jogo de Truco.txt","w");
-												// teste de abertura do arquivo, se n„o for possivel ele ser aberto o programa ser· fechado.
+												// teste de abertura do arquivo, se n√£o for possivel ele ser aberto o programa ser√° fechado.
 	if(r==NULL){
 		printf("\n ERRO ao abrir o arquivo.");
 		exit(1);
 		fclose(r);
 		return 0;
 	}
-												//criaÁ„o de uma vari·vel para dar tÌtulo ao arquivo.
+												//cria√ß√£o de uma vari√°vel para dar t√≠tulo ao arquivo.
 	char arquivo[100] = " Jogo de Truco.\n";
-												//Escrita do conte˙do da variavel no arquivo.
+												//Escrita do conte√∫do da variavel no arquivo.
 	fputs(arquivo,r);
-												//UtilizaÁ„o da biblioteca para possibilitar o uso da linguagem portuguesa com acentos.
+												//Utiliza√ß√£o da biblioteca para possibilitar o uso da linguagem portuguesa com acentos.
 	setlocale(LC_ALL, "Portuguese");
-												//NomeaÁ„o das variaveis que ser„o usadas no codigo.
+												//Nomea√ß√£o das variaveis que ser√£o usadas no codigo.
 	int n_jo;									// Variavel para o numero de jogadores.
 	int n;
 	int m;
-												//Variaveis auxiliar para laÁos de repetiÁ„o.
+												//Variaveis auxiliar para la√ßos de repeti√ß√£o.
 												
 	int rodada; 								//Variavel para contabilizar o numero de rodadas.
 	int partida; 								// Variavel para contabilizar o numero da partida.
-	baralho *t;									//CriaÁ„o do ponteiro para representar as cartas.
-	jogador *jogadores; 						//CriaÁ„o do ponteiro para representar os jogadores.
-	int *aux_jogada;							//CriaÁ„o de um ponteiro auxiliar.
+	baralho *t;									//Cria√ß√£o do ponteiro para representar as cartas.
+	jogador *jogadores; 						//Cria√ß√£o do ponteiro para representar os jogadores.
+	int *aux_jogada;							//Cria√ß√£o de um ponteiro auxiliar.
 	int aux,auxj1, auxj2; 						//variaveis auxiliares.
 	aux = 0;
 	auxj1=0;
-	t =	ini(); 									//IniciaÁ„o do ponteiro do baralho.
+	t =	ini(); 									//Inicia√ß√£o do ponteiro do baralho.
 	
-	printf("\n REGRAS: \n\n 1 - Numero minimo de jogadores 2, numero maximo de jogadores 8.\n 2 - A sequencia dos nipes sera representada por numeros: Paus (4), Copas (3), Espadas (2), Ouro (1).\n\n  3 - As cartas ser„o representadas por numeros em ordem crescente de forÁa: 4, 5, 6, 7, Q, J, K, A, 2, 3 -> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.");
-	printf("\n\n 4 - Ao final de cada rodada, na vez do ˙ltimo jogador dizer quantas rodadas far·, este deve contabilizar a quantidade que cada um dos jogadores anteriormente disse que fariam, de modo que a quantidade que este ˙ltimo jogador far· somada ao somatÛrio dos demais jogadores, n„o pode ser exatamente a mesma quantidade de cartas daquela rodada.\n");
+	printf("\n REGRAS: \n\n 1 - Numero minimo de jogadores 2, numero maximo de jogadores 8.\n 2 - A sequencia dos nipes sera representada por numeros: Paus (4), Copas (3), Espadas (2), Ouro (1).\n\n  3 - As cartas ser√£o representadas por numeros em ordem crescente de for√ßa: 4, 5, 6, 7, Q, J, K, A, 2, 3 -> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.");
+	printf("\n\n 4 - Ao final de cada rodada, na vez do √∫ltimo jogador dizer quantas rodadas far√°, este deve contabilizar a quantidade que cada um dos jogadores anteriormente disse que fariam, de modo que a quantidade que este √∫ltimo jogador far√° somada ao somat√≥rio dos demais jogadores, n√£o pode ser exatamente a mesma quantidade de cartas daquela rodada.\n");
 	printf("\n Digite o numero de jogadores: ");
-	fprintf(r,"\n REGRAS: \n\n 1 - Numero minimo de jogadores 2, numero maximo de jogadores 8.\n 2 - A sequencia dos nipes sera representada por numeros: Paus (4), Copas (3), Espadas (2), Ouro (1).\n 3 - As cartas ser„o representadas por numeros em ordem crescente de forÁa: 4, 5, 6, 7, Q, J, K, A, 2, 3 -> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.");
-	fprintf(r,"\n 4 - Ao final de cada rodada, na vez do ˙ltimo jogador dizer quantas rodadas far·, este deve contabilizar a quantidade que cada um dos jogadores anteriormente disse que fariam, de modo que a quantidade que este ˙ltimo jogador far· somada ao somatÛrio dos demais jogadores, n„o pode ser exatamente a mesma quantidade de cartas daquela rodada.\n");
+	fprintf(r,"\n REGRAS: \n\n 1 - Numero minimo de jogadores 2, numero maximo de jogadores 8.\n 2 - A sequencia dos nipes sera representada por numeros: Paus (4), Copas (3), Espadas (2), Ouro (1).\n 3 - As cartas ser√£o representadas por numeros em ordem crescente de for√ßa: 4, 5, 6, 7, Q, J, K, A, 2, 3 -> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.");
+	fprintf(r,"\n 4 - Ao final de cada rodada, na vez do √∫ltimo jogador dizer quantas rodadas far√°, este deve contabilizar a quantidade que cada um dos jogadores anteriormente disse que fariam, de modo que a quantidade que este √∫ltimo jogador far√° somada ao somat√≥rio dos demais jogadores, n√£o pode ser exatamente a mesma quantidade de cartas daquela rodada.\n");
 	fprintf(r,"\n Digite o numero de jogadores: ");
 	scanf("%d", &n_jo);
 	fprintf(r,"%d", n_jo);
@@ -176,16 +176,19 @@ int main(){
 		scanf("%d", &n_jo);
 		
 	}
-	shuffle(t); 								//embaralho das cartas por meio da funÁ„o shuffle e do ponteiro do baralho.
+	shuffle(t); 								//embaralho das cartas por meio da fun√ß√£o shuffle e do ponteiro do baralho.
 		fflush(stdin);
 		aux_jogada = (int*)malloc(n_jo*sizeof(int)); 
-												//AtribuiÁ„o do indice para o ponteiro auxiliar por meio da alocaÁ„o de memoria.
+												//Atribui√ß√£o do indice para o ponteiro auxiliar por meio da aloca√ß√£o de memoria.
 		jogadores = (jogador*)malloc(n_jo*sizeof(jogador));
-												//AtribuiÁ„o do indice para o ponteiro dos jogadores por meio da alocaÁ„o de memoria.
+												//Atribui√ß√£o do indice para o ponteiro dos jogadores por meio da aloca√ß√£o de memoria.
 		
 		rodada = 5;
+		for(n=0;n<n_jo;n++){
+			jogadores[n].vidas = 5;//Definindo o numero de vidas de cada jogador
+		}
 			for(partida = 0; partida<10;partida++){ 
-												// ComeÁo do jogo.
+												// Come√ßo do jogo.
 				rodada = 5;
 				auxj1 = 0;
 				shuffle(t);
@@ -201,10 +204,10 @@ int main(){
 					printf("\n\n Cartas do Jogador %d: ", m+1);
 					fprintf(r,"\n\n Cartas do Jogador %d: ", m+1);
 					jogadores[m].rodadas_vencidas = 0;
-					jogadores[m].vidas = 5;
+					
 					aux = m*rodada;
 					for(n=0;n<rodada;n++){
-												// DistribuiÁ„o das cartas embaralhadas para os jogadores, por meio do numero de rodadas.
+												// Distribui√ß√£o das cartas embaralhadas para os jogadores, por meio do numero de rodadas.
 						jogadores[m].mao[n].numero = t->cartao[aux].numero;
 						jogadores[m].mao[n].nipe = t->cartao[aux].nipe;
 						jogadores[m].mao[n].zap= t->cartao[aux].zap;
@@ -212,24 +215,24 @@ int main(){
 						fprintf(r,"\n Numero: %d, Nipe: %d, Zap: %d", jogadores[m].mao[n].numero+1, jogadores[m].mao[n].nipe, jogadores[m].mao[n].zap);
 						aux++;
 					}
-					printf("\n\n Jogador numero %d digite quantas rodadas ser„o vencidas: ",m+1); 
-					fprintf(r,"\n\n Jogador numero %d digite quantas rodadas ser„o vencidas: ",m+1);
-												//AtribuiÁ„o do numero de rodadas vencidas fornecida pelo jogador.
+					printf("\n\n Jogador numero %d digite quantas rodadas ser√£o vencidas: ",m+1); 
+					fprintf(r,"\n\n Jogador numero %d digite quantas rodadas ser√£o vencidas: ",m+1);
+												//Atribui√ß√£o do numero de rodadas vencidas fornecida pelo jogador.
 					scanf("%d", &jogadores[m].rodadas);
 					fprintf(r,"%d",jogadores[m].rodadas);
 					auxj1+=jogadores[m].rodadas;
 					while(jogadores[m].rodadas > rodada){
-												//teste de validade da atribuiÁ„o
+												//teste de validade da atribui√ß√£o
 							printf("\n Numero invalido.\n Numero maior que a quantidade de cartas na rodada.");
-							printf("\n Jogador numero %d digite quantas rodadas ser„o vencidas: ",m+1);
+							printf("\n Jogador numero %d digite quantas rodadas ser√£o vencidas: ",m+1);
 							scanf("%d", &jogadores[m].rodadas);
 					}
 					if(m==n_jo-1){
 						while(auxj1>=n_jo*rodada){
-												//teste de validade da atribuiÁ„o
+												//teste de validade da atribui√ß√£o
 							auxj1-=jogadores[m].rodadas;
 							printf("\n Numero invalido (Regra 4).\n");
-							printf("\n Jogador numero %d digite quantas rodadas ser„o vencidas: ",m+1);
+							printf("\n Jogador numero %d digite quantas rodadas ser√£o vencidas: ",m+1);
 							scanf("%d", &jogadores[m].rodadas);
 							auxj1+=jogadores[m].rodadas;
 						}
@@ -239,7 +242,7 @@ int main(){
 				}
 		printf("\n\n\n PARTIDA %d \n\n\n", partida+1);
 		fprintf(r,"\n\n\n PARTIDA %d \n\n\n", partida+1);
-		while(rodada>0){ 						// SeleÁ„o das cartas pelos jogadores para sua jogada em um looping para as rodadas seguintes.
+		while(rodada>0){ 						// Sele√ß√£o das cartas pelos jogadores para sua jogada em um looping para as rodadas seguintes.
 			for(n=0;n<n_jo;n++){
 				printf("\n\n Jogador %d selecione uma carta: ", n+1);
 				fprintf(r,"\n\n Jogador %d selecione uma carta: ", n+1);
@@ -250,11 +253,11 @@ int main(){
 				scanf("%d", &aux_jogada[n]);
 				fprintf(r,"%d", aux_jogada[n]);
 				while(aux_jogada[n] > rodada || aux_jogada[n] < 0){
-												// LaÁo de repetiÁ„o para verificar se a carta existe.
+												// La√ßo de repeti√ß√£o para verificar se a carta existe.
 					printf("\n Carta invalida. \n Selecione uma das cartas acima.");
 					scanf("%d", &aux_jogada[n]);
 				}
-												// ComparaÁ„o entre as cartas jogadas para ver a maior.
+												// Compara√ß√£o entre as cartas jogadas para ver a maior.
 				if(n==0){
 					auxj1 = n;
 					auxj2 = aux_jogada[n]-1;
@@ -268,10 +271,10 @@ int main(){
 			}
 			printf("\n\n Jogador %d venceu a rodada. ", auxj1+1);
 			fprintf(r,"\n\n Jogador %d venceu a rodada. ", auxj1+1);
-												// Demostrar o jogador vencedor da rodada por meio da comparaÁ„o anterior.
+												// Demostrar o jogador vencedor da rodada por meio da compara√ß√£o anterior.
 			jogadores[auxj1].rodadas_vencidas++;
 			for(n=0;n<n_jo;n++){
-												//Exclus„o das cartas j· jogadas pelos jogadores.
+												//Exclus√£o das cartas j√° jogadas pelos jogadores.
 				jogadores[n].mao[aux_jogada[n]-1].numero = -1;
 				
 					if(jogadores[n].mao[aux_jogada[n]].numero!= -1){
@@ -289,7 +292,7 @@ int main(){
 			
 				
 
-		rodada--; 								// Decremento da variavel para mudar tanto a rodada quanto a quantidada de cartas que ser„o distribuidas.
+		rodada--; 								// Decremento da variavel para mudar tanto a rodada quanto a quantidada de cartas que ser√£o distribuidas.
 	}
 	printf("\n Vidas dos jogadores: ");
 	fprintf(r,"\n Vidas dos jogadores: ");
@@ -310,14 +313,14 @@ int main(){
 			if(n_jo<2){
 				printf("\n Jogador %d foi o ganhador.", n);
 				fprintf(r,"\n Jogador %d foi o ganhador.", n);
-				return 0; 						// Termino do jogo quando sÛ restar um jogador com vidas.
+				return 0; 						// Termino do jogo quando s√≥ restar um jogador com vidas.
 			}
 		}
 		}
 		
 		
 }
-	fclose(r); // Fechamento do arquivo para gravaÁ„o.
+	fclose(r); // Fechamento do arquivo para grava√ß√£o.
 	return 0;
 	
 }
