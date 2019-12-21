@@ -8,9 +8,9 @@
 
 #include <locale.h>
 
-// FunÁ„o para rolagem de dado aleatoriamente.
-// criaÁ„o de 3 dados para corresponderem com as regras do jogo.
-// VerificaÁ„o da repetiÁ„o dos dados e anulaÁ„o dos mesmos se a repetiÁ„o for dado 1: 6 dado 2: 6 dado 3: 6.
+// Fun√ß√£o para rolagem de dado aleatoriamente.
+// cria√ß√£o de 3 dados para corresponderem com as regras do jogo.
+// Verifica√ß√£o da repeti√ß√£o dos dados e anula√ß√£o dos mesmos se a repeti√ß√£o for dado 1: 6 dado 2: 6 dado 3: 6.
 // print dos dados sorteados na tela.
 void dado(int *d1, int *d2, int *d3){
 	
@@ -46,31 +46,31 @@ void dado(int *d1, int *d2, int *d3){
 		
 }
 
-// funÁ„o para comer peÁas.
-// Coleta da funÁ„o que contÈm as peÁas separadamente por jogador, a peÁa selecionada para ser jogada e o numero de jogadores.
-// comparaÁ„o da peÁa jogada pelo jogador com as peÁas dos outros jogadores.
-// anulaÁ„o da peÁa do outro jogador se ela for equivalente ao dados do jogador coletado.
+// fun√ß√£o para comer pe√ßas.
+// Coleta da fun√ß√£o que cont√©m as pe√ßas separadamente por jogador, a pe√ßa selecionada para ser jogada e o numero de jogadores.
+// compara√ß√£o da pe√ßa jogada pelo jogador com as pe√ßas dos outros jogadores.
+// anula√ß√£o da pe√ßa do outro jogador se ela for equivalente ao dados do jogador coletado.
 void voltarparabase(int n_peca[][4],int n, int pecajogada, int i){
 	int m,j;
 	for(m=0;m<i;m++){
 			
 			for(j = 0;j<4;j++){
-				/* testes para ver se a peÁa est· junta de outra peÁa).*/
+				/* testes para ver se a pe√ßa est√° junta de outra pe√ßa).*/
 				if(j=0){
 				
 				if(n_peca[n][pecajogada-1] - 13 == n_peca[1][j]  && n!= m ){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 26 == n_peca[2][j]  && n!= m){
 				
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 39 == n_peca[3][j]  && n!= m){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[n][j] = 0;
 				continue;
 				}
@@ -80,18 +80,18 @@ void voltarparabase(int n_peca[][4],int n, int pecajogada, int i){
 				if(j=1){
 				
 				if(n_peca[n][pecajogada-1] - 13 == n_peca[2][j]  && n!= m ){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 26 == n_peca[3][j]  && n!= m){
 				
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 39 == n_peca[0][j]  && n!= m){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[n][j] = 0;
 				continue;
 				}
@@ -100,18 +100,18 @@ void voltarparabase(int n_peca[][4],int n, int pecajogada, int i){
 				if(j=2){
 				
 				if(n_peca[n][pecajogada-1] - 13 == n_peca[3][j]  && n!= m ){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 26 == n_peca[0][j]  && n!= m){
 				
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 39 == n_peca[1][j]  && n!= m){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[n][j] = 0;
 				continue;
 				}
@@ -120,18 +120,18 @@ void voltarparabase(int n_peca[][4],int n, int pecajogada, int i){
 				if(j=3){
 				
 				if(n_peca[n][pecajogada-1] - 13 == n_peca[0][j]  && n!= m ){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 26 == n_peca[1][j]  && n!= m){
 				
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[m][j] = 0;
 				continue;
 				}
 				if(n_peca[n][pecajogada-1] - 39 == n_peca[2][j]  && n!= m){
-				printf("\n Jogador %d comeu uma peÁa. \n\n PeÁa %d do jogador %d foi devolvida ‡ base.",n,j, m);
+				printf("\n Jogador %d comeu uma pe√ßa. \n\n Pe√ßa %d do jogador %d foi devolvida √† base.",n,j, m);
 				n_peca[n][j] = 0;
 				continue;
 				}
@@ -143,9 +143,9 @@ void voltarparabase(int n_peca[][4],int n, int pecajogada, int i){
 		
 }
 
-// funÁ„o para a peÁa chegar o objetivo de cada peÁa.
-// se a peÁa chegar no seu objetivo ela ser· considerada uma peÁa indisponÌvel para proximas jogadas por um comando de repetiÁ„o na funÁ„o main.
-// como todas as peÁas s„o vetores n„o compartilhados diretamente cada uma pode comeÁar e terminar com as casas do mesmo valor n„o importando de qual jogador ela È.
+// fun√ß√£o para a pe√ßa chegar o objetivo de cada pe√ßa.
+// se a pe√ßa chegar no seu objetivo ela ser√° considerada uma pe√ßa indispon√≠vel para proximas jogadas por um comando de repeti√ß√£o na fun√ß√£o main.
+// como todas as pe√ßas s√£o vetores n√£o compartilhados diretamente cada uma pode come√ßar e terminar com as casas do mesmo valor n√£o importando de qual jogador ela √©.
 int retafinal(int n_peca[][4],int n,int pecajogada,int *m, int dado){
 		int j;
 		if((n_peca[j][pecajogada-1] += dado) > 57){
@@ -176,28 +176,28 @@ int retafinal(int n_peca[][4],int n,int pecajogada,int *m, int dado){
 int main(){
 	// comando para habilitar caracteres da lingua portuguesa.
 	setlocale(LC_ALL,"");
-	// CriaÁ„o do ponteiro do tipo arquivo para armazenar as jogadas.
+	// Cria√ß√£o do ponteiro do tipo arquivo para armazenar as jogadas.
 	FILE *p;
-	// Abertura do arquivo para o registro das jogadas com a funÁ„o somente de escrita.
+	// Abertura do arquivo para o registro das jogadas com a fun√ß√£o somente de escrita.
 	p = fopen("Jogadas do ludo.txt","w");
-	// teste de abertura do arquivo, se n„o for possivel ele ser aberto o programa ser· fechado.
+	// teste de abertura do arquivo, se n√£o for possivel ele ser aberto o programa ser√° fechado.
 	if(p==NULL){
 		printf("\n ERRO ao abrir o arquivo.");
 		exit(1);
 		fclose(p);
 		return 0;
 	}
-	//criaÁ„o de uma vari·vel para dar tÌtulo ao arquivo.
+	//cria√ß√£o de uma vari√°vel para dar t√≠tulo ao arquivo.
 	char arquivo[100] = " Jogo de Ludo.\n";
-	//Escrita do conte˙do da variavel no arquivo.
+	//Escrita do conte√∫do da variavel no arquivo.
 	fputs(arquivo,p);
-		// CriaÁ„o das vari·veis inteiras necessarias do programa.	
+		// Cria√ß√£o das vari√°veis inteiras necessarias do programa.	
 		int i=1,n,m,aux[4],j,testador=0,aux2=0,aux3[4];
-		// AtribuiÁ„o de 0 para os valores do vetor auxiliar 3 com finalidade de terminar a reproduÁ„o do jogo nas circunstancias certas. 
+		// Atribui√ß√£o de 0 para os valores do vetor auxiliar 3 com finalidade de terminar a reprodu√ß√£o do jogo nas circunstancias certas. 
 		for(m=0;m<4;m++){
 			aux3[m] = 0;
 		}
-		// Comando de repetiÁ„o para conter o numero de jogadores com uma restriÁ„o minima de jogadores.
+		// Comando de repeti√ß√£o para conter o numero de jogadores com uma restri√ß√£o minima de jogadores.
 		while(i<2){
 			printf("\n Digite o numero de jogadores: ");
 			scanf("%d", &i);
@@ -211,12 +211,12 @@ int main(){
 	
 		
 	
-	//CriaÁ„o de um ponteiro de ponteiro e de uma vari·vel para as peÁas que ser„o jogadas.
+	//Cria√ß√£o de um ponteiro de ponteiro e de uma vari√°vel para as pe√ßas que ser√£o jogadas.
 	
 	int **n_peca, pecajogada;
 	
-	// AtribuiÁ„o das peÁas para cada jogador por meio da alocaÁ„o de memoria usando a vari·vel do numero de jogadores fornecida pelo teclado anteriormente.
-	// Valor de todas as peÁas de comeÁo ser· 0.
+	// Atribui√ß√£o das pe√ßas para cada jogador por meio da aloca√ß√£o de memoria usando a vari√°vel do numero de jogadores fornecida pelo teclado anteriormente.
+	// Valor de todas as pe√ßas de come√ßo ser√° 0.
 	
 	n_peca = (int**)malloc(i*sizeof(int*));
 	
@@ -230,10 +230,10 @@ int main(){
 		}
 	}
 
-	// CriaÁ„o de uma vari·vel para simbolizar o fim do jogo.
+	// Cria√ß√£o de uma vari√°vel para simbolizar o fim do jogo.
 	
 	int fim = 0; 
-	// Comando de repetiÁ„o que rodar· o jogo com a vari·vel para simbolizar o fim do jogo.
+	// Comando de repeti√ß√£o que rodar√° o jogo com a vari√°vel para simbolizar o fim do jogo.
 	while(fim == 0){
 		// comando para limpar a tela.
 		system("cls");
@@ -243,41 +243,41 @@ int main(){
 		printf("\n\n Jogador %d  ", n+1);
 		
 		fprintf(p,"\n\n Jogador %d", n+1);
-		//CriaÁ„o das vari·veis dos dados.
+		//Cria√ß√£o das vari√°veis dos dados.
 		int d1 = 0,d2 = 0, d3 = 0;
-		// UtilizaÁ„o da funÁ„o dos dados para alterar as vari·veis.
+		// Utiliza√ß√£o da fun√ß√£o dos dados para alterar as vari√°veis.
 		dado(&d1,&d2,&d3);
 		// Escrita do resultado dos dados no arquivo, juntamente com o teste dos dados.
 		fprintf(p,"\n\n Dado 1: %d, Dado 2: %d, Dado 3: %d \n", d1, d2, d3);
 		if(d1==0){
-			printf("\n\n TrÍs 6 repetidos nos dados, pulou a vez.\n\n");
+			printf("\n\n Tr√™s 6 repetidos nos dados, pulou a vez.\n\n");
 			fprintf(p,"\n\n Pulou a vez\n\n");
 			printf("\n Pulou a vez.\n\n");
 			system("pause");
-			continue; // passa a vez pelo comando de repetiÁ„o se forem sorteados 3 dados com valor 6.
+			continue; // passa a vez pelo comando de repeti√ß√£o se forem sorteados 3 dados com valor 6.
 		}
 		
-		//teste para a saida de peÁas pelas regras do jogo ludo.
+		//teste para a saida de pe√ßas pelas regras do jogo ludo.
 		
 		
 				if(d1<6 && n_peca[n][0] == 0 && n_peca[n][1]==0 && n_peca[n][2]==0 && n_peca[n][3] == 0){
-					printf("\n Para sair com uma peÁa de sua base È necessario tirar pelo menos um 6.\n\n ");
+					printf("\n Para sair com uma pe√ßa de sua base √© necessario tirar pelo menos um 6.\n\n ");
 					fprintf(p,"\n\n Pulou a vez\n\n");
 					printf("\n Pulou a vez.\n\n");
 					system("pause");
 					system("cls");
-					// se for barrado a saida de peÁas ser· passada a vez pelo comando de repetiÁ„o.
+					// se for barrado a saida de pe√ßas ser√° passada a vez pelo comando de repeti√ß√£o.
 					continue;
 				}
-				// Print do valor de cada peÁa.
-			printf("\n\n Valor de cada peÁa.\n\n PeÁa 1: %d. PeÁa 2: %d. PeÁa 3: %d. PeÁa 4: %d.\n",n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
-			// Jogada das peÁas dependente do valor dos dados.
+				// Print do valor de cada pe√ßa.
+			printf("\n\n Valor de cada pe√ßa.\n\n Pe√ßa 1: %d. Pe√ßa 2: %d. Pe√ßa 3: %d. Pe√ßa 4: %d.\n",n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
+			// Jogada das pe√ßas dependente do valor dos dados.
 		while(d1 != 0 || d2 != 0 || d3 != 0){
-			// vari·vel de teste das peÁas È zerada no comando de repetiÁ„o logo antes do seu uso.
+			// vari√°vel de teste das pe√ßas √© zerada no comando de repeti√ß√£o logo antes do seu uso.
 			testador=0;
 		
-			printf("\n PeÁas que podem ser selecionadas (se houver somente uma ela ser· jogada automaticamentea): ");
-			// UtilizaÁ„o de um comando de repetiÁ„o para verificar todas as 4 peÁas.
+			printf("\n Pe√ßas que podem ser selecionadas (se houver somente uma ela ser√° jogada automaticamentea): ");
+			// Utiliza√ß√£o de um comando de repeti√ß√£o para verificar todas as 4 pe√ßas.
 		
 		for(m=0;m<4;m++){
 			aux[m]=0;
@@ -287,7 +287,7 @@ int main(){
 				aux[m]=1;
 				testador++;
 				}
-				// VerificaÁ„o da legalidade do movimento das peÁas dependente do valor dos dados por meio da logica.
+				// Verifica√ß√£o da legalidade do movimento das pe√ßas dependente do valor dos dados por meio da logica.
 				else if(n_peca[n][m]==0 && d2!=0 && d1!= 0 && n_peca[n][m] < 57){
 					printf(" %d", m+1);
 					aux[m]=1;
@@ -299,12 +299,12 @@ int main(){
 					testador++;
 				}
 		}
-		//alteraÁ„o de uma peÁa automaticamente se sÛ houver a validade de sua jogada.
+		//altera√ß√£o de uma pe√ßa automaticamente se s√≥ houver a validade de sua jogada.
 		if(testador == 1){
 			for(m=0;m<4;m++){
 				if(aux[m] == 1){
 					if(d1==0 && d2!= 0 && d3 == 0){
-						//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+						//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 					retafinal(n_peca,n,pecajogada,&aux2,d2);
 					n_peca[n][m]+= d2;
 					
@@ -312,7 +312,7 @@ int main(){
 					continue;
 					}
 					if(d1!= 0 && d2 == 0 && d3 == 0){
-						//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+						//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 					retafinal(n_peca,n,pecajogada,&aux2,d1);
 					n_peca[n][m]+= d1;
 					
@@ -320,7 +320,7 @@ int main(){
 					continue;
 					}
 					if(d1== 0 && d2 == 0 && d3 != 0){
-					//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+					//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 					retafinal(n_peca,n,pecajogada,&aux2,d3);
 					n_peca[n][m]+= d3;
 					
@@ -328,7 +328,7 @@ int main(){
 					continue;
 					}
 					if(d1!= 0 && d2 != 0 && d3 == 0){
-						//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+						//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 					retafinal(n_peca,n,pecajogada,&aux2,d1+d2);
 					n_peca[n][m]+= d1+d2;
 					
@@ -338,7 +338,7 @@ int main(){
 					continue;
 					}
 					if(d1== 0 && d2 != 0 && d3 != 0){
-						//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+						//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 					retafinal(n_peca,n,pecajogada,&aux2,d3+d2);
 					n_peca[n][m]+= d3+d2;
 					
@@ -351,23 +351,23 @@ int main(){
 					}	
 				}
 			}
-			//print na tela de cada peÁa do jogador depois de sua jogada se tiver ocorrido nesse comando.
-			printf("\n\n Valor de cada peÁa do jogador %d.\n\n PeÁa 1: %d. PeÁa 2: %d. PeÁa 3: %d. PeÁa 4: %d.\n\n",n+1,n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
+			//print na tela de cada pe√ßa do jogador depois de sua jogada se tiver ocorrido nesse comando.
+			printf("\n\n Valor de cada pe√ßa do jogador %d.\n\n Pe√ßa 1: %d. Pe√ßa 2: %d. Pe√ßa 3: %d. Pe√ßa 4: %d.\n\n",n+1,n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
 			system("pause");
 			continue;
 		}
-		printf("\n\n PeÁa: ");
+		printf("\n\n Pe√ßa: ");
 		scanf("%d", &pecajogada);
 		
 		
 
 		
-		//Teste para ver se a peÁa selecionada È valida.
-		// se n„o for v·lida È requisitado outra entrada de dados atÈ q a peÁa seja v·lida.
+		//Teste para ver se a pe√ßa selecionada √© valida.
+		// se n√£o for v√°lida √© requisitado outra entrada de dados at√© q a pe√ßa seja v√°lida.
 		
 		while(aux[pecajogada-1] != 1){
 			printf("\n Jogada invalida.\n\n");
-			printf("\n\n Digite uma das peÁas validas.\n\n PeÁas que podem ser selecionadas: ");
+			printf("\n\n Digite uma das pe√ßas validas.\n\n Pe√ßas que podem ser selecionadas: ");
 			for(m=0;m<4;m++){
 			aux[m]=0;
 			
@@ -384,37 +384,37 @@ int main(){
 			}
 			scanf("%d", &pecajogada);
 		}
-		// sequencia de comparaÁıes para modificar a peÁa dependendo de cada situaÁ„o dos dados jogados.
+		// sequencia de compara√ß√µes para modificar a pe√ßa dependendo de cada situa√ß√£o dos dados jogados.
 		
 		if(d1 != 0 && d2==0 && d3==0 && testador >1){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d1);
 			n_peca[n][pecajogada-1] += d1;
 			
 			continue;
 		}
 		if(d1 != 0 && d2==0 && d3==0 && testador ==1){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d1);
 			n_peca[n][pecajogada-1] += d1;
 			
 			continue;
 		}
 		if(d1==0 && d3==0 && d2 != 0 && testador ==1){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d2);
 			n_peca[n][pecajogada-1] += d2;
 			
 			continue;
 		}
 		if(d2==0 && d1==0 && d3 != 0 && testador ==1){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d3);
 			n_peca[n][pecajogada-1] += d3;
 			
 			continue;
 		}
-		// testes para o print dos dados sorteados pelo jogador para ele escolher qual dado ser· usado para cada peÁa.
+		// testes para o print dos dados sorteados pelo jogador para ele escolher qual dado ser√° usado para cada pe√ßa.
 		if(d2!= 0 && d3==0 && testador > 1){
 		
 			printf("\n Escolha o VALOR do dado. ");
@@ -430,7 +430,7 @@ int main(){
 		}
 		
 		if(testador ==1 && d2 != 0 && d3 == 0){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d1+d2);
 			n_peca[n][pecajogada-1] += d1+d2;
 			
@@ -438,7 +438,7 @@ int main(){
 		}
 		
 		if(testador ==1 && d2 != 0 && d3 != 0){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d2+d3);
 			n_peca[n][pecajogada-1] += d2+d3;
 			
@@ -449,37 +449,37 @@ int main(){
 		scanf("%d", &j);
 		
 		if(j==d1 && n_peca[n][pecajogada-1] != 0 || d1 == 6){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d1);
 		n_peca[n][pecajogada-1] += d1;
 		
 		d1=0;
 		}
 		if(j==d2 && n_peca[n][pecajogada-1] != 0 || d2 == 6){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d2);
 		n_peca[n][pecajogada-1] += d2;
 		
 		d2=0;
 		}
 		if(j==d3 && n_peca[n][pecajogada-1] != 0 || d3 == 6){
-			//utilizaÁ„o da funÁ„o de termino das peÁas toda fez que ela È alterada para verificar sua "pontuaÁ„o" no jogo.
+			//utiliza√ß√£o da fun√ß√£o de termino das pe√ßas toda fez que ela √© alterada para verificar sua "pontua√ß√£o" no jogo.
 			retafinal(n_peca,n,pecajogada,&aux2,d3);
 		n_peca[n][pecajogada-1] += d3;
 		
 		d3=0;
 		}
-		//Depois do movimento da peÁa È utilizado a funÁ„o voltarparabase para verificar se havia uma peÁa  de outro jogador naquela posiÁ„o e se houver ela È retornada para a sua base.
+		//Depois do movimento da pe√ßa √© utilizado a fun√ß√£o voltarparabase para verificar se havia uma pe√ßa  de outro jogador naquela posi√ß√£o e se houver ela √© retornada para a sua base.
 		voltarparabase(n_peca,n,pecajogada-1,i);
 		
-		// Fim da sequencia de modificaÁ„o das peÁas 
+		// Fim da sequencia de modifica√ß√£o das pe√ßas 
 		
 		
 	}
-	//print do valor de cada peÁa do jogador depois de sua jogada.
-		printf("\n\n Valor de cada peÁa do jogador %d.\n\n PeÁa 1: %d. PeÁa 2: %d. PeÁa 3: %d. PeÁa 4: %d.\n\n",n+1,n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
+	//print do valor de cada pe√ßa do jogador depois de sua jogada.
+		printf("\n\n Valor de cada pe√ßa do jogador %d.\n\n Pe√ßa 1: %d. Pe√ßa 2: %d. Pe√ßa 3: %d. Pe√ßa 4: %d.\n\n",n+1,n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
 		system("cls");
-		// checagem de cada peÁa dos jogadores, se todas as peÁas de um jogador forem pontuadas o jogo acaba.
+		// checagem de cada pe√ßa dos jogadores, se todas as pe√ßas de um jogador forem pontuadas o jogo acaba.
 		
 		for(m=0;m<i;m++){
 			for(j=0;j<4;j++){
@@ -497,8 +497,8 @@ int main(){
 		
 		
 
-		//print das peÁas do jogador depois de sua jogada completa.
-		fprintf(p,"\n\n Valor de cada peÁa do jogador %d Depois da jogada.\n\n PeÁa 1: %d. PeÁa 2: %d. PeÁa 3: %d. PeÁa 4: %d.\n\n",n+1,n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
+		//print das pe√ßas do jogador depois de sua jogada completa.
+		fprintf(p,"\n\n Valor de cada pe√ßa do jogador %d Depois da jogada.\n\n Pe√ßa 1: %d. Pe√ßa 2: %d. Pe√ßa 3: %d. Pe√ßa 4: %d.\n\n",n+1,n_peca[n][0],n_peca[n][1],n_peca[n][2],n_peca[n][3]);
 
 		}
 		
@@ -510,7 +510,3 @@ int main(){
 	fclose(p);
 	return 0;
 }
-
-
-
-
